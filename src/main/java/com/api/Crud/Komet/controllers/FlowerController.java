@@ -3,10 +3,12 @@ package com.api.Crud.Komet.controllers;
 
 import com.api.Crud.Komet.models.FlowerModel;
 import com.api.Crud.Komet.services.FlowerService;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping("/flower")
@@ -20,7 +22,7 @@ public class FlowerController {
     }
 
     @PostMapping
-    public FlowerModel saveFlower(FlowerModel flower){
+    public FlowerModel saveFlower(@RequestBody FlowerModel flower){
         return this.flowerService.saveFlower(flower);
     }
 
@@ -33,7 +35,21 @@ public class FlowerController {
             return "Error, La flor con el id " + id + "no pudo ser borrada";
         }
     }
+    @GetMapping(path = "/greater")
+    public ArrayList<FlowerModel> getFlowersG(){
+        return this.flowerService.getFlowersG();
+    }
 
+    @PutMapping
+    public List getName(@RequestBody String name) throws JsonProcessingException {
+
+        return this.flowerService.getName(name);
+    }
+
+    @GetMapping("/name")
+    public ArrayList<String> getConcat(){
+        return this.flowerService.getFlowersConcat();
+    }
 
 
 
