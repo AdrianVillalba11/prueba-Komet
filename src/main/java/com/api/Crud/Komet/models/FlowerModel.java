@@ -10,7 +10,7 @@ public class FlowerModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
-    private Float price;
+    private double price;
 
     public long getId() {
         return id;
@@ -28,11 +28,11 @@ public class FlowerModel {
         this.name = name;
     }
 
-    public Float getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(Float price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 }

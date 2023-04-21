@@ -1,4 +1,9 @@
 package com.api.Crud.Komet.repositories;
 
-public interface IFlowerRepository {
+import com.api.Crud.Komet.models.FlowerModel;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface IFlowerRepository extends JpaRepository <FlowerModel, Long> {
 }
